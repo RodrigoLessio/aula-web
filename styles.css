@@ -84,7 +84,6 @@ header h1 {
 }
 
 /* Lista de navegação */
-
 nav ul {
   list-style: none;
   display: flex;
@@ -100,11 +99,13 @@ nav a {
   text-decoration: none;
   color: #fff;
   font-weight: bold;
+  transition: color 0.3s ease-in-out; /* Adicionando a transição de cor */
 }
 
 nav a:hover {
   color: #ffc107;
 }
+
 
 /* Seções */
 
