@@ -19,7 +19,6 @@ td {
 }
 
 /* Estilos gerais */
-
 body {
   font-family: 'Arial', sans-serif;
   color: #333;
@@ -27,26 +26,21 @@ body {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid; /* Transformando a main em um grid */
+  grid-template-columns: repeat(2, 1fr); /* Duas colunas de mesmo tamanho */
+  gap: 20px; /* Espaçamento entre as colunas e linhas */
+  justify-items: center;
+  margin: 20px; /* Adicionando margem para espaço entre as bordas do main e as seções */
 }
 
-main > section {
-  padding: 20px;
-}
-
-main section,
-main article {
-  width: 80vw;
+/* Ajuste adicional para as seções */
+main > section,
+main > article {
   color: black;
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
 }
 
 section h1,
@@ -70,7 +64,6 @@ ul li {
 }
 
 /* Header */
-
 header {
   background-color: #007bff;
   color: #fff;
@@ -106,23 +99,33 @@ nav a:hover {
   color: #ffc107;
 }
 
-
 /* Seções */
-
 #info-squirtle div {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
-#info-squirtle img {
+#info-squirtle img,
+#evolucao img {
   width: 150px;
   height: 150px;
   align-self: center;
+  transition: transform 0.3s ease-in-out; /* Adicionando a transição de escala */
 }
 
 #info-squirtle img:nth-of-type(2) {
   padding: 35px;
+}
+
+#info-squirtle img:hover,
+#evolucao img:hover {
+  transform: scale(1.1); /* Aumentando a escala em 1.1 quando hover */
+}
+
+#info-squirtle img,
+#evolucao img {
+  transition: transform 0.3s ease-in-out; /* Adicionando a transição de transformação */
 }
 
 #curiosidades ul {
@@ -154,30 +157,25 @@ nav a:hover {
   margin-top: 16px;
 }
 
-article {
-  background-color: #ffc107;
-  color: #fff;
+/* Recursos Adicionais */
+#recursos ul {
+  transition: opacity 0.3s ease-in-out; /* Adicionando a transição de opacidade */
 }
 
-/* Links */
-
-a[target='_blank'] {
-  color: #4592c4;
-  font-weight: bold;
+#recursos ul li a {
+  transition: opacity 0.3s ease-in-out; /* Adicionando a transição de opacidade */
 }
 
-a[target='_blank']:hover {
-  opacity: 0.8;
+#recursos ul:hover {
+  opacity: 0.8; /* Mudando a opacidade ao passar o mouse */
 }
 
 /* Footer */
-
 footer {
   background-color: #343a40;
   color: #fff;
   padding: 20px;
   bottom: 0;
-
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -207,4 +205,38 @@ footer a[href*='tel'] {
 
 footer a[href]:hover {
   opacity: 0.8;
+}
+
+/* Estilos para resoluções menores que 768px */
+@media (max-width: 767px) {
+  main {
+    grid-template-columns: 1fr; /* Apenas uma coluna */
+  }
+
+  nav ul {
+    flex-direction: column; /* Trocar a direção para coluna */
+    align-items: center; /* Centralizar os itens na coluna */
+  }
+
+  #evolucao ul {
+    flex-direction: column; /* Trocar a direção para coluna */
+    align-items: center; /* Centralizar as imagens na coluna */
+  }
+
+  #evolucao img {
+    margin-bottom: 10px; /* Adicionar espaço entre as imagens */
+  }
+
+  #evolucao figcaption {
+    font-size: 16px; /* Trocar o tamanho da fonte para 16px */
+  }
+
+  header h1 {
+    font-size: 20px; /* Alterando o tamanho da fonte do h1 para 20px */
+  }
+
+  section h2,
+  article h2 {
+    font-size: 18px; /* Trocar o tamanho da fonte dos h2 para 18px */
+  }
 }
